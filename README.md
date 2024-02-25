@@ -10,7 +10,7 @@
 
 이 프로젝트는 [pnpm](https://pnpm.io/)을 사용해 패키지를 관리합니다. [node.js](https://nodejs.org)를 설치하고 다음 커맨드를 실행해 pnpm을 준비합니다
 
-```powershell
+```sh
 corepack enable pnpm
 corepack use pnpm@latest
 ```
@@ -25,7 +25,7 @@ corepack use pnpm@latest
 
 [rustup](https://rustup.rs/)을 설치하고 다음 커맨드를 실행해 러스트 툴체인을 설치합니다
 
-```powershell
+```sh
 rustup toolchain install stable-msvc
 ```
 
@@ -37,7 +37,7 @@ rustup toolchain install stable-msvc
 
 다음 커맨드를 실행해 프로젝트를 받습니다
 
-```powershell
+```sh
 git clone https://github.com/pekochan069/uta-timeline.git
 cd ./uta-timeline
 ```
@@ -46,7 +46,7 @@ cd ./uta-timeline
 
 다음 커맨드를 실행해 프로젝트를 컴파일하고, 빌드된 바이너리를 확인합니다
 
-```powershell
+```sh
 pnpm tauri build
 ```
 
@@ -54,7 +54,7 @@ pnpm tauri build
 
 기본 타겟이 아닌 다른 타겟을 대상으로 빌드를 하려면 `--target]` 플래그를 사용합니다
 
-```powershell
+```sh
 pnpm tauri build --target aarch64-pc-windows-msvc # 64bit ARM Processor for windows
 ```
 
@@ -64,6 +64,6 @@ pnpm tauri build --target aarch64-pc-windows-msvc # 64bit ARM Processor for wind
 
 개발을 할 때는 다음 커맨드를 이용해 로컬 개발용 디버그 빌드를 띄워서 사용합니다
 
-```powershell
+```sh
 pnpm tauri dev
 ```
