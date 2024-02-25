@@ -17,7 +17,7 @@ corepack use pnpm@latest
 
 #### 2. [Microsoft Visual Studio C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-`Microsoft Visual Studio C++ Build Tools`을 설치하기 위해서는 [Visual Studio 2022](https://visualstudio.microsoft.com/visual-cpp-build-tools/)를 이용해 설치합니다
+`Microsoft Visual Studio C++ Build Tools`을 설치하기 위해서는 [Visual Studio 2022](https://visualstudio.microsoft.com/visual-cpp-build-tools/)를 이용합니다
 
 ![Visual Studio 2022 설치](https://github.com/pekochan069/uta-timeline/assets/97679910/210f40ba-4cec-4f9b-b683-ba4d49ad160b)
 
@@ -38,7 +38,7 @@ rustup toolchain install stable-msvc
 다음 커맨드를 실행해 프로젝트를 받습니다
 
 ```powershell
-https://github.com/pekochan069/uta-timeline.git
+git clone https://github.com/pekochan069/uta-timeline.git
 cd ./uta-timeline
 ```
 
