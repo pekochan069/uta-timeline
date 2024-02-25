@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.pekochan069.uta-timeline",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
