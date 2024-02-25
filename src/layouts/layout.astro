@@ -1,0 +1,20 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import "~/styles/root.css";
+---
+
+<html lang="en">
+  <head>
+    <ViewTransitions />
+    <meta charset="utf-8" />
+    <meta content="width=device-width" name="viewport" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <title>Uta Timeline</title>
+  </head>
+  <body>
+    <div class="h-svh min-h-svh" id="app">
+      <slot />
+    </div>
+  </body>
+</html>

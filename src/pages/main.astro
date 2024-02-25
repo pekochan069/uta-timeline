@@ -1,0 +1,26 @@
+---
+import { ClearButton } from "~/components/buttons/clear-button";
+import { LinkInput } from "~/components/link/input";
+import { LinkPasteButton } from "~/components/link/link-paste-button";
+import { MainForm } from "~/components/link/main-form";
+import Layout from "~/layouts/layout.astro";
+---
+
+<Layout>
+  <header class="container py-4">
+    <div class="flex h-full flex-col items-center">
+      <MainForm client:load>
+        <div class="flex flex-1 gap-4">
+          <div class="flex-1" transition:name="link-input">
+            <LinkInput client:load transition:persist="link-input" />
+          </div>
+          <div>
+            <ClearButton type="reset" />
+            <LinkPasteButton client:load />
+          </div>
+        </div>
+      </MainForm>
+    </div>
+  </header>
+  <main class="container">main</main>
+</Layout>
