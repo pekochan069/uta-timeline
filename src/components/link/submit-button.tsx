@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/solid";
 import { TbArrowRight } from "solid-icons/tb";
 
 import { link } from "~/atoms/link";
-import { videoId } from "~/atoms/videoId";
+import { videoId } from "~/atoms/youtube";
 import { Button } from "~/components/ui/button";
 import { getVideoId } from "~/lib/youtube";
 

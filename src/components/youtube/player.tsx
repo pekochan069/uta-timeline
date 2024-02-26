@@ -1,16 +1,11 @@
 import { useStore } from "@nanostores/solid";
 
 import { link } from "~/atoms/link";
-import { videoId } from "~/atoms/videoId";
+import { videoId, youtubeUrl } from "~/atoms/youtube";
 
 export function Player() {
-  const $link = useStore(link);
   const $videoId = useStore(videoId);
+  const $youtubeUrl = useStore(youtubeUrl);
 
-  return (
-    <div>
-      {$link()}
-      {$videoId()}
-    </div>
-  );
+  return <div>{$youtubeUrl()}</div>;
 }
