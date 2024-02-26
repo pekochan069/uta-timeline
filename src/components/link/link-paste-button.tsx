@@ -1,7 +1,7 @@
 import { toast } from "solid-sonner";
 
 import { link } from "~/atoms/link";
-import {PasteButton} from "~/components/buttons/paste-button";
+import { PasteButton } from "~/components/buttons/paste-button";
 
 export function LinkPasteButton() {
   return (

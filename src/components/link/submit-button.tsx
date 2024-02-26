@@ -2,10 +2,11 @@ import { useStore } from "@nanostores/solid";
 import { TbArrowRight } from "solid-icons/tb";
 
 import { link } from "~/atoms/link";
+import { videoId } from "~/atoms/videoId";
 import { Button } from "~/components/ui/button";
 import { getVideoId } from "~/lib/youtube";
 
-export function HomeSubmitButton() {
+export function SubmitButton() {
   const $link = useStore(link);
 
   return (
@@ -13,10 +14,7 @@ export function HomeSubmitButton() {
       Icon={() => <TbArrowRight />}
       iconLocation="right"
       onClick={() => {
-        const videoIdInput = document.getElementById(
-          "video-id",
-        ) as HTMLInputElement;
-        videoIdInput.value = getVideoId($link());
+        videoId.set(getVideoId($link()));
       }}
       variant="expandIcon"
     >

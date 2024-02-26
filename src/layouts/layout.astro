@@ -1,12 +1,11 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { Toaster } from "solid-sonner";
 
 import "~/styles/root.css";
 ---
 
 <html lang="en">
   <head>
-    <ViewTransitions />
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
@@ -16,5 +15,15 @@ import "~/styles/root.css";
     <div class="h-svh min-h-svh" id="app">
       <slot />
     </div>
+    <Toaster
+      class="toaster group"
+      client:only
+      position="bottom-right"
+      toastOptions={{
+        class:
+          "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+        descriptionClass: "group-[.toast]:text-muted-foreground",
+      }}
+    />
   </body>
 </html>
