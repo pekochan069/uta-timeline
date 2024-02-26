@@ -6,7 +6,7 @@ import { videoId } from "~/atoms/youtube";
 import { Button } from "~/components/ui/button";
 import { getVideoId } from "~/lib/youtube";
 
-export function SubmitButton() {
+export function LinkSubmitButton() {
   const $link = useStore(link);
 
   return (

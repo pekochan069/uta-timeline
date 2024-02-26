@@ -1,8 +1,8 @@
 ---
 import { ClearButton } from "~/components/buttons/clear-button";
 import { LinkInput } from "~/components/link/input";
-import { LinkPasteButton } from "~/components/link/link-paste-button";
-import { SubmitButton } from "~/components/link/submit-button";
+import { LinkPasteButton } from "~/components/link/paste-button";
+import { LinkSubmitButton } from "~/components/link/submit-button";
 import { Player } from "~/components/youtube/player";
 import Layout from "~/layouts/layout.astro";
 ---
@@ -21,12 +21,20 @@ import Layout from "~/layouts/layout.astro";
           </div>
         </div>
         <div class="flex justify-center">
-          <SubmitButton client:load />
+          <LinkSubmitButton client:load />
         </div>
       </nav>
     </div>
   </header>
-  <main class="container">
-    <Player client:load />
+  <main class="container py-4">
+    <div class="flex justify-center">
+      <Player client:load />
+    </div>
   </main>
 </Layout>
+<script is:inline>
+  let tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  let firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>

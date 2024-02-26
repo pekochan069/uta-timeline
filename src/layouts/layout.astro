@@ -1,6 +1,7 @@
 ---
 import { Toaster } from "solid-sonner";
 
+import ScrollToTop from "~/components/ScrollToTop.astro";
 import "~/styles/root.css";
 ---
 
@@ -12,18 +13,19 @@ import "~/styles/root.css";
     <title>Uta Timeline</title>
   </head>
   <body>
-    <div class="h-svh min-h-svh" id="app">
+    <div class="min-h-svh" id="app">
       <slot />
+      <ScrollToTop />
+      <Toaster
+        class="toaster group"
+        client:only
+        position="bottom-right"
+        toastOptions={{
+          class:
+            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+          descriptionClass: "group-[.toast]:text-muted-foreground",
+        }}
+      />
     </div>
-    <Toaster
-      class="toaster group"
-      client:only
-      position="bottom-right"
-      toastOptions={{
-        class:
-          "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
-        descriptionClass: "group-[.toast]:text-muted-foreground",
-      }}
-    />
   </body>
 </html>
