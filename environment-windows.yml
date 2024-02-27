@@ -249,4 +249,3 @@ dependencies:
       - proxy-tools==0.1.0
       - pywebview==4.4.1
       - torchaudio==2.2.1
-prefix: C:\Users\thinl\scoop\apps\miniconda3\current\envs\uta-timeline
