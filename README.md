@@ -47,12 +47,6 @@ pnpm install
 다음 커맨드를 실행해 정확한 파이썬 실행 환경을 구성합니다
 
 ```sh
-pnpm run init:windows # windows
-```
-
-**윈도우**에서 사용할 경우 `init` 스크립트를 대신 사용할 수 있습니다
-
-```sh
 pnpm run init
 ```
 
@@ -89,24 +83,12 @@ mamba env create -f environment-windows.yml # windows
 다음 커맨드를 실행해 프로젝트를 빌드하고 실행합니다
 
 ```sh
-pnpm run start:windows # windows
-```
-
-**윈도우**에서 사용할 경우 `start` 스크립트를 대신 사용할 수 있습니다
-
-```sh
 pnpm run start
 ```
 
 ## 로컬 개발 서버
 
 개발을 할 때는 다음 커맨드를 이용해 로컬 개발용 디버그 빌드를 띄워서 사용합니다
-
-```sh
-pnpm run dev:windows # windows
-```
-
-**윈도우**에서 개발을 할 경우 `dev` 스크립트를 대신 사용할 수 있습니다
 
 ```sh
 pnpm run dev

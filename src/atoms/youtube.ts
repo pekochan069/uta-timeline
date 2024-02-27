@@ -1,7 +1,6 @@
-import { atom, computed } from "nanostores";
+import { atom } from "nanostores";
 
 export const videoId = atom("");
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const player = atom<any>(null);

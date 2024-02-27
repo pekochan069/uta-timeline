@@ -3,13 +3,17 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "init": "pnpm run init:windows",
+    "init": "run-script-os",
     "init:windows": "conda env create -f environment-windows.yml",
-    "dev": "pnpm run dev:windows",
+    "init:default": "echo 'This platform is currently not supported'",
+    "dev": "run-script-os",
     "dev:front": "astro dev",
     "dev:windows": "cross-env NODE_ENV=development ENV=development concurrently --kill-others \"pnpm run dev:front\" \"conda run -n uta-timeline python src-py/main.py\"",
+    "dev:default": "echo 'This platform is currently not supported'",
     "build": "astro check && astro build",
+    "start": "run-script-os",
     "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production conda run -n uta-timeline python src-py/main.py",
+    "start:default": "echo 'This platform is currently not supported'",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -49,6 +53,7 @@
     "eslint-plugin-solid": "^0.13.1",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.11"
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "run-script-os": "^1.1.6"
   }
 }
