@@ -5,6 +5,7 @@ import { LinkPasteButton } from "~/components/link/paste-button";
 import { LinkSubmitButton } from "~/components/link/submit-button";
 import { Player } from "~/components/youtube/player";
 import Layout from "~/layouts/layout.astro";
+import Tmp from "~/components/tmp";
 ---
 
 <Layout>
@@ -30,6 +31,7 @@ import Layout from "~/layouts/layout.astro";
     <div class="flex justify-center">
       <Player client:load />
     </div>
+    <Tmp client:load />
   </main>
 </Layout>
 <script is:inline>
