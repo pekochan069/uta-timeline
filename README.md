@@ -4,8 +4,6 @@
 
 ### 준비물
 
-자세한 내용은 [타우리 사전 요구 사항](https://tauri.app/ko/v1/guides/getting-started/prerequisites)을 확인해주세요
-
 #### 1. [node.js](https://nodejs.org)
 
 이 프로젝트는 [pnpm](https://pnpm.io/)을 사용해 패키지를 관리합니다. [node.js](https://nodejs.org)를 설치하고 다음 커맨드를 실행해 pnpm을 준비합니다
@@ -15,23 +13,15 @@ corepack enable pnpm
 corepack use pnpm@latest
 ```
 
-#### 2. [Microsoft Visual Studio C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+#### 2. [Conda](https://conda.io/projects/conda/latest/index.html)
 
-`Microsoft Visual Studio C++ Build Tools`을 설치하기 위해서는 [Visual Studio 2022](https://visualstudio.microsoft.com/visual-cpp-build-tools/)를 이용합니다
+이 프로젝트는 Conda(**mamba**)를 이용해 파이썬 패키지를 관리합니다
 
-![Visual Studio 2022 설치](https://github.com/pekochan069/uta-timeline/assets/97679910/210f40ba-4cec-4f9b-b683-ba4d49ad160b)
+Conda를 설치하는 방법은 [Miniforge](https://github.com/conda-forge/miniforge)를 사용해 설치하는 것을 추천합니다
 
-#### 3. [rust](https://www.rust-lang.org/) 툴체인
+**Miniforge** 이외에도 [Anaconda](https://www.anaconda.com/), 혹은 [Miniconda](https://docs.anaconda.com/free/miniconda/index.html)를 이용해 **Conda**를 설치할 수 있습니다
 
-[rustup](https://rustup.rs/)을 설치하고 다음 커맨드를 실행해 러스트 툴체인을 설치합니다
-
-```sh
-rustup toolchain install stable-msvc
-```
-
-위 커맨드를 실행하면 호스트 플랫폼에 맞는 가장 최신의 안정 버전의 러스트 툴체인을 설치합니다
-
-#### 4. [git](https://git-scm.com)
+#### 3. [git](https://git-scm.com)
 
 ### 프로젝트 받기
 
@@ -42,28 +32,82 @@ git clone https://github.com/pekochan069/uta-timeline.git
 cd ./uta-timeline
 ```
 
-### 프로젝트 빌드
+### 프로젝트 환경 설정
 
-다음 커맨드를 실행해 프로젝트를 컴파일하고, 빌드된 바이너리를 확인합니다
+#### Node.js 환경 설정
 
-```sh
-pnpm tauri build
-```
-
-컴파일된 바이너리는 `src-tauri/target/{BUILD_TARGET}/` 폴더에 생성됩니다
-
-기본 타겟이 아닌 다른 타겟을 대상으로 빌드를 하려면 `--target]` 플래그를 사용합니다
+다음 커맨드를 실행해 정확한 Node.js 실행 환경을 구성합니다
 
 ```sh
-pnpm tauri build --target aarch64-pc-windows-msvc # 64bit ARM Processor for windows
+pnpm install
 ```
 
-자세한 내용은 [타우리 빌드 가이드](https://tauri.app/v1/guides/building/)를 참조하세요
+#### 파이썬 환경 설정
+
+다음 커맨드를 실행해 정확한 파이썬 실행 환경을 구성합니다
+
+```sh
+pnpm run init:windows # windows
+```
+
+**윈도우**에서 사용할 경우 `init` 스크립트를 대신 사용할 수 있습니다
+
+```sh
+pnpm run init
+```
+
+혹은 직접 **Conda**(**Mamba**) 명령어를 실행해 파이썬 실행 환경을 구성할 수도 있습니다
+
+```sh
+conda env create -f environment-windows.yml # windows
+```
+
+**Mamba**를 사용한다면 **Conda** 대신 **Mamba**를 사용할 수 있습니다
+
+`package.json` 안과 위 커맨드의 `conda`를 `mamba`로 수정하면 **Conda** 대신 더 빠른 **Mamba**를 사용할 수 있습니다
+
+```diff
+package.json
+...
+- 6 "init:windows": "conda env create -f environment-windows.yml",
++ 6 "init:windows": "mamba env create -f environment-windows.yml",
+...
+- 9 "dev:windows": "cross-env NODE_ENV=development ENV=development concurrently --kill-others \"pnpm run dev:front\" \"conda run -n uta-timeline python src-py/main.py\"",
++ 9 "dev:windows": "cross-env NODE_ENV=development ENV=development concurrently --kill-others \"pnpm run dev:front\" \"mamba run -n uta-timeline python src-py/main.py\"",
+...
+- 11  "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production conda run -n uta-timeline python src-py/main.py",
++ 11 "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production mamba run -n uta-timeline python src-py/main.py",
+...
+```
+
+```sh
+mamba env create -f environment-windows.yml # windows
+```
+
+### 프로젝트 빌드 및 실행
+
+다음 커맨드를 실행해 프로젝트를 빌드하고 실행합니다
+
+```sh
+pnpm run start:windows # windows
+```
+
+**윈도우**에서 사용할 경우 `start` 스크립트를 대신 사용할 수 있습니다
+
+```sh
+pnpm run start
+```
 
 ## 로컬 개발 서버
 
 개발을 할 때는 다음 커맨드를 이용해 로컬 개발용 디버그 빌드를 띄워서 사용합니다
 
 ```sh
-pnpm tauri dev
+pnpm run dev:windows # windows
+```
+
+**윈도우**에서 개발을 할 경우 `dev` 스크립트를 대신 사용할 수 있습니다
+
+```sh
+pnpm run dev
 ```

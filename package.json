@@ -3,9 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "init": "pnpm run init:windows",
+    "init:windows": "conda env create -f environment-windows.yml",
+    "dev": "pnpm run dev:windows",
+    "dev:front": "astro dev",
+    "dev:windows": "cross-env NODE_ENV=development ENV=development concurrently --kill-others \"pnpm run dev:front\" \"conda run -n uta-timeline python src-py/main.py\"",
     "build": "astro check && astro build",
+    "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production conda run -n uta-timeline python src-py/main.py",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -22,6 +26,7 @@
     "canvas-confetti": "^1.9.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cross-env": "^7.0.3",
     "effect": "^2.4.0",
     "nanostores": "^0.10.0",
     "postcss": "^8.4.28",
@@ -34,9 +39,9 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.5.10",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.31.4",

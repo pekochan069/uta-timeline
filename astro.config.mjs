@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     server: {
       watch: {
-        ignored: ["**/target/**"],
+        ignored: ["src-py/**"],
       },
     },
   },
