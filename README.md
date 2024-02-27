@@ -75,7 +75,7 @@ package.json
 - 9 "dev:windows": "cross-env NODE_ENV=development ENV=development concurrently --kill-others \"pnpm run dev:front\" \"conda run -n uta-timeline python src-py/main.py\"",
 + 9 "dev:windows": "cross-env NODE_ENV=development ENV=development concurrently --kill-others \"pnpm run dev:front\" \"mamba run -n uta-timeline python src-py/main.py\"",
 ...
-- 11  "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production conda run -n uta-timeline python src-py/main.py",
+- 11 "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production conda run -n uta-timeline python src-py/main.py",
 + 11 "start:windows": "cross-env NODE_ENV=production pnpm run build&& cross-env ENV=production mamba run -n uta-timeline python src-py/main.py",
 ...
 ```
